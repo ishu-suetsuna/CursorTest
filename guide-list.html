@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI音声ガイド - 一覧</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="guide-list.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- ヘッダー -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="logo">
+                        <div class="logo-icon">🎨</div>
+                        <h1>Museum AI Guide</h1>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="展示物を検索..." class="search-input">
+                        <button class="search-btn" id="searchBtn">
+                            <span class="search-icon">🔍</span>
+                        </button>
+                    </div>
+                    <div class="user-menu">
+                        <button class="user-btn" id="userMenuBtn">
+                            <div class="user-avatar">👤</div>
+                            <span class="user-name">ユーザー</span>
+                        </button>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="#" class="dropdown-item">プロフィール</a>
+                            <a href="#" class="dropdown-item">設定</a>
+                            <a href="#" class="dropdown-item" id="logoutBtn">ログアウト</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- メインコンテンツ -->
+        <main class="main-content">
+            <div class="content-header">
+                <h2>音声ガイド一覧</h2>
+                <p>美術館・博物館の展示物を音声で解説します</p>
+            </div>
+
+            <!-- フィルター -->
+            <div class="filter-section">
+                <div class="filter-group">
+                    <label>カテゴリー:</label>
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="">すべて</option>
+                        <option value="painting">絵画</option>
+                        <option value="sculpture">彫刻</option>
+                        <option value="artifact">工芸品</option>
+                        <option value="history">歴史資料</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>並び順:</label>
+                    <select id="sortFilter" class="filter-select">
+                        <option value="popular">人気順</option>
+                        <option value="newest">新着順</option>
+                        <option value="alphabetical">アルファベット順</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- ガイド一覧 -->
+            <div class="guide-grid" id="guideGrid">
+                <!-- ガイドカードはJavaScriptで動的に生成 -->
+            </div>
+
+            <!-- ローディング -->
+            <div class="loading-container" id="loadingContainer" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p>読み込み中...</p>
+            </div>
+
+            <!-- ページネーション -->
+            <div class="pagination" id="pagination">
+                <!-- ページネーションはJavaScriptで動的に生成 -->
+            </div>
+        </main>
+    </div>
+
+    <!-- ガイドカードのテンプレート -->
+    <template id="guideCardTemplate">
+        <div class="guide-card" data-id="">
+            <div class="card-image">
+                <img src="" alt="" class="guide-image">
+                <div class="card-overlay">
+                    <button class="play-btn" data-id="">
+                        <span class="play-icon">▶️</span>
+                    </button>
+                </div>
+            </div>
+            <div class="card-content">
+                <h3 class="guide-title"></h3>
+                <p class="guide-description"></p>
+                <div class="guide-meta">
+                    <span class="guide-category"></span>
+                    <span class="guide-duration"></span>
+                </div>
+                <div class="card-actions">
+                    <button class="detail-btn" data-id="">詳細を見る</button>
+                    <button class="favorite-btn" data-id="">
+                        <span class="favorite-icon">♡</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="guide-list.js"></script>
+</body>
+</html>

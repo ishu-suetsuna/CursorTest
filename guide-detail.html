@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI音声ガイド - 詳細</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="guide-detail.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- ヘッダー -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <button class="back-btn" id="backBtn">
+                        <span class="back-icon">←</span>
+                        <span>戻る</span>
+                    </button>
+                    <div class="logo">
+                        <div class="logo-icon">🎨</div>
+                        <h1>Museum AI Guide</h1>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="user-menu">
+                        <button class="user-btn" id="userMenuBtn">
+                            <div class="user-avatar">👤</div>
+                            <span class="user-name">ユーザー</span>
+                        </button>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="#" class="dropdown-item">プロフィール</a>
+                            <a href="#" class="dropdown-item">設定</a>
+                            <a href="#" class="dropdown-item" id="logoutBtn">ログアウト</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- メインコンテンツ -->
+        <main class="main-content">
+            <div class="guide-detail-container">
+                <!-- ガイド情報 -->
+                <div class="guide-info">
+                    <div class="guide-header">
+                        <div class="guide-image-container">
+                            <img src="" alt="" class="guide-image" id="guideImage">
+                            <div class="image-overlay">
+                                <button class="play-audio-btn" id="playAudioBtn">
+                                    <span class="play-icon">▶️</span>
+                                    <span class="play-text">音声ガイドを再生</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="guide-meta-info">
+                            <h1 class="guide-title" id="guideTitle"></h1>
+                            <p class="guide-subtitle" id="guideSubtitle"></p>
+                            <div class="guide-tags">
+                                <span class="tag category-tag" id="categoryTag"></span>
+                                <span class="tag duration-tag" id="durationTag"></span>
+                                <span class="tag language-tag">日本語</span>
+                            </div>
+                            <div class="guide-actions">
+                                <button class="favorite-btn" id="favoriteBtn">
+                                    <span class="favorite-icon">♡</span>
+                                    <span class="favorite-text">お気に入り</span>
+                                </button>
+                                <button class="share-btn" id="shareBtn">
+                                    <span class="share-icon">📤</span>
+                                    <span class="share-text">共有</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 音声プレイヤー -->
+                <div class="audio-player" id="audioPlayer" style="display: none;">
+                    <div class="player-header">
+                        <h3>音声ガイド</h3>
+                        <button class="close-player-btn" id="closePlayerBtn">×</button>
+                    </div>
+                    <div class="player-content">
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <div class="time-display">
+                                <span class="current-time" id="currentTime">0:00</span>
+                                <span class="total-time" id="totalTime">0:00</span>
+                            </div>
+                        </div>
+                        <div class="player-controls">
+                            <button class="control-btn" id="rewindBtn">
+                                <span class="control-icon">⏪</span>
+                            </button>
+                            <button class="control-btn play-pause-btn" id="playPauseBtn">
+                                <span class="control-icon">▶️</span>
+                            </button>
+                            <button class="control-btn" id="forwardBtn">
+                                <span class="control-icon">⏩</span>
+                            </button>
+                        </div>
+                        <div class="playback-options">
+                            <label class="speed-label">
+                                再生速度:
+                                <select id="playbackSpeed" class="speed-select">
+                                    <option value="0.5">0.5x</option>
+                                    <option value="0.75">0.75x</option>
+                                    <option value="1" selected>1.0x</option>
+                                    <option value="1.25">1.25x</option>
+                                    <option value="1.5">1.5x</option>
+                                    <option value="2">2.0x</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ガイド詳細 -->
+                <div class="guide-content">
+                    <div class="content-section">
+                        <h2>作品について</h2>
+                        <p class="description" id="guideDescription"></p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>音声ガイドの内容</h2>
+                        <div class="transcript-container">
+                            <div class="transcript" id="transcript">
+                                <!-- 音声ガイドの文字起こしがここに表示されます -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>関連情報</h2>
+                        <div class="related-info">
+                            <div class="info-item">
+                                <h4>制作年</h4>
+                                <p id="creationYear"></p>
+                            </div>
+                            <div class="info-item">
+                                <h4>作者</h4>
+                                <p id="artistName"></p>
+                            </div>
+                            <div class="info-item">
+                                <h4>技法</h4>
+                                <p id="technique"></p>
+                            </div>
+                            <div class="info-item">
+                                <h4>所蔵</h4>
+                                <p id="collection"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>関連作品</h2>
+                        <div class="related-works" id="relatedWorks">
+                            <!-- 関連作品がここに表示されます -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 関連作品のテンプレート -->
+    <template id="relatedWorkTemplate">
+        <div class="related-work-card" data-id="">
+            <img src="" alt="" class="related-work-image">
+            <div class="related-work-info">
+                <h4 class="related-work-title"></h4>
+                <p class="related-work-artist"></p>
+            </div>
+        </div>
+    </template>
+
+    <script src="guide-detail.js"></script>
+</body>
+</html>

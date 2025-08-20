@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI音声ガイド - ログイン</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo">
+                    <div class="logo-icon">🎨</div>
+                    <h1>Museum AI Guide</h1>
+                </div>
+                <p class="subtitle">美術館・博物館の展示物を音声で解説</p>
+            </div>
+            
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="email">メールアドレス</label>
+                    <input type="email" id="email" name="email" required placeholder="example@museum.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">パスワード</label>
+                    <input type="password" id="password" name="password" required placeholder="パスワードを入力">
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="remember">
+                        <span class="checkmark"></span>
+                        ログイン状態を保持
+                    </label>
+                    <a href="#" class="forgot-password">パスワードを忘れた方</a>
+                </div>
+                
+                <button type="submit" class="login-btn">
+                    <span class="btn-text">ログイン</span>
+                    <div class="btn-loader" style="display: none;">
+                        <div class="spinner"></div>
+                    </div>
+                </button>
+            </form>
+            
+            <div class="login-footer">
+                <p>アカウントをお持ちでない方は <a href="#" class="signup-link">新規登録</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="login.js"></script>
+</body>
+</html>

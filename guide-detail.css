@@ -1,0 +1,612 @@
+/* 音声ガイド詳細画面のスタイル */
+.app-container {
+    min-height: 100vh;
+    background: #f8fafc;
+}
+
+/* ヘッダー */
+.app-header {
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.back-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #4a5568;
+    font-size: 14px;
+}
+
+.back-btn:hover {
+    background: #f7fafc;
+    border-color: #cbd5e0;
+}
+
+.back-icon {
+    font-size: 16px;
+}
+
+.header-left .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-left .logo-icon {
+    font-size: 24px;
+}
+
+.header-left h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ユーザーメニュー */
+.user-menu {
+    position: relative;
+}
+
+.user-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.user-btn:hover {
+    background: #f7fafc;
+    border-color: #cbd5e0;
+}
+
+.user-avatar {
+    font-size: 16px;
+}
+
+.user-name {
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.user-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.user-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 12px 16px;
+    color: #4a5568;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: #f7fafc;
+}
+
+.dropdown-item:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.dropdown-item:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+/* メインコンテンツ */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px;
+}
+
+.guide-detail-container {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ガイド情報 */
+.guide-info {
+    padding: 32px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.guide-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.guide-image-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.guide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.guide-image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+.play-audio-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 12px;
+    padding: 16px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a202c;
+    transition: all 0.2s ease;
+}
+
+.play-audio-btn:hover {
+    background: white;
+    transform: scale(1.05);
+}
+
+.play-icon {
+    font-size: 20px;
+}
+
+.guide-meta-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.guide-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.guide-subtitle {
+    font-size: 18px;
+    color: #718096;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.guide-tags {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.category-tag {
+    background: #e6fffa;
+    color: #065666;
+}
+
+.duration-tag {
+    background: #fef5e7;
+    color: #92400e;
+}
+
+.language-tag {
+    background: #f0fff4;
+    color: #22543d;
+}
+
+.guide-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.favorite-btn,
+.share-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.favorite-btn:hover,
+.share-btn:hover {
+    background: #f7fafc;
+    border-color: #cbd5e0;
+}
+
+.favorite-btn.active {
+    background: #fed7d7;
+    border-color: #feb2b2;
+    color: #c53030;
+}
+
+.favorite-icon,
+.share-icon {
+    font-size: 16px;
+}
+
+/* 音声プレイヤー */
+.audio-player {
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 24px 32px;
+}
+
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.player-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 0;
+}
+
+.close-player-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #a0aec0;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.close-player-btn:hover {
+    background: #e2e8f0;
+    color: #4a5568;
+}
+
+.player-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #667eea;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #718096;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    align-items: center;
+}
+
+.control-btn {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    background: #f7fafc;
+    border-color: #cbd5e0;
+}
+
+.play-pause-btn {
+    background: #667eea;
+    border-color: #667eea;
+    color: white;
+}
+
+.play-pause-btn:hover {
+    background: #5a67d8;
+    border-color: #5a67d8;
+}
+
+.control-icon {
+    font-size: 18px;
+}
+
+.playback-options {
+    display: flex;
+    justify-content: center;
+}
+
+.speed-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.speed-select {
+    padding: 6px 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.speed-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* ガイド詳細 */
+.guide-content {
+    padding: 32px;
+}
+
+.content-section {
+    margin-bottom: 40px;
+}
+
+.content-section:last-child {
+    margin-bottom: 0;
+}
+
+.content-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 0 0 16px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4a5568;
+    margin: 0;
+}
+
+.transcript-container {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+}
+
+.transcript {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4a5568;
+    white-space: pre-line;
+}
+
+.related-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.info-item h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #718096;
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-item p {
+    font-size: 16px;
+    color: #2d3748;
+    margin: 0;
+    font-weight: 500;
+}
+
+.related-works {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.related-work-card {
+    background: #f8fafc;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.related-work-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.related-work-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.related-work-info {
+    padding: 16px;
+}
+
+.related-work-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+}
+
+.related-work-artist {
+    font-size: 12px;
+    color: #718096;
+    margin: 0;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .guide-header {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .guide-image-container {
+        aspect-ratio: 16/9;
+    }
+    
+    .guide-title {
+        font-size: 24px;
+    }
+    
+    .guide-subtitle {
+        font-size: 16px;
+    }
+    
+    .guide-actions {
+        flex-direction: column;
+    }
+    
+    .player-controls {
+        gap: 12px;
+    }
+    
+    .related-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .related-works {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .main-content {
+        padding: 24px 16px;
+    }
+    
+    .guide-info,
+    .guide-content {
+        padding: 24px;
+    }
+    
+    .audio-player {
+        padding: 20px 24px;
+    }
+}
